@@ -27,10 +27,10 @@ Template.home.rendered = function() {
   });
 
   var data3 = [
+    {text: '朝阳区', id: 'CY3'},
     {text: '东城区', id: 'DC3'},
     {text: '西城区', id: 'XC3'},
     {text: '海淀区', id: 'HD3'},
-    {text: '朝阳区', id: 'CY3'},
     {text: '丰台区', id: 'FT3'},
   ]
   $(".select3_dropdown").select2({
