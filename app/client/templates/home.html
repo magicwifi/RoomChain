@@ -1,0 +1,151 @@
+<template name="home">
+  <div class="container">
+    <div class="top_image">
+      <img src="/ship.png" />
+      <p class="top_headline">旅行短租 & 房间预定</p>
+    </div>
+  </div>
+  <div class="cargo_header">
+    <ul class="rainbow_border">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <div class="container home">
+    <div class="first_step">
+      <div class="steps_header">
+        <button class="step_button">1</button>
+        <span class="step_title">基本信息</span>
+      </div>
+      <div class="row input_fields">
+        <div class="col-xs-6 form-group">
+          <form role="form">
+            <p class="step_maintitle">姓名</p>
+            <input id="importer_person" class="form-control step_element" type="text" placeholder="Importer Name">
+            <input id="exporter_person" class="form-control step_element" type="text" placeholder="输入您的姓名">
+          </form>
+        </div>
+        <div class="col-xs-6 form-group">
+          <form role="form">
+            <p class="step_maintitle">联系方式</p>
+            <input id="exporter_phone" class="form-control step_element" type="text" placeholder="输入您的电话">
+            <input id="exporter_email" class="form-control step_element" type="text" placeholder="输入您的Email">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="second_step">
+      <div class="steps_header">
+        <button class="step_button">2</button>
+        <span class="step_title">选择房源</span>
+      </div>
+      <div class="row input_fields">
+        <div class="col-xs-6">
+          <div class="step_element">
+            <p class="step_subtitle">目的城市</p>
+            <select id="origin" class="select2_dropdown"></select>
+          </div>
+          <div class="step_element">
+            <p class="step_subtitle">选择区域</p>
+            <select id="destination" class="select2_dropdown"></select>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="step_element">
+            <p class="step_subtitle">房源列表</p>
+            <select id="destination" class="select2_dropdown"></select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="third_step">
+      <div class="steps_header">
+        <button class="step_button">3</button>
+        <span class="step_title">住宿信息</span>
+      </div>
+      <div class="row input_fields">
+        <div class="col-md-6">
+          <div class="step_element">
+            <p class="step_subtitle">入住日期</p>
+            <input id="arrival_date" type="date" class="form-control date_input">
+          </div>
+          <div class="step_element">
+            <p class="step_subtitle">入住时长</p>
+          <div class="input-group payment_input">
+                <input id="duration" class="form-control" type="number" name="quantity" min="1" max="30">
+                <span class="input-group-addon" id="basic-addon1">夜</span>
+          </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="step_element">
+            <p class="step_subtitle">入住人数</p>
+          <div class="input-group payment_input">
+                <input id="weight" class="form-control" type="number" name="quantity" min="1" max="10">
+                <span class="input-group-addon" id="basic-addon1">人</span>
+          </div>
+          </div>
+          <div class="form-group step_element">
+            <p class="step_subtitle">其他说明</p>
+<textarea id="description" type="text" class="form-control"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fourth_step">
+      <div class="steps_header">
+        <button class="step_button">4</button>
+        <span class="step_title">支付信息</span>
+      </div>
+      <div class="row input_fields">
+        <div class="col-md-6">
+          <div class="step_element">
+            <p class="step_subtitle">总金额</p>
+            <div class="my-input-element">
+               <p class="step_subtitle"> ¥  {{calculatedResult}} 元</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="step_element">
+            <p class="step_subtitle">押金</p>
+	       <div id="my-input-element" >
+               <p class="step_subtitle"> ¥  {{calculatedResult}} 元</p>
+		</div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="fifth_step">
+      <div class="steps_header">
+        <button class="step_button">5</button>
+        <span class="step_title">资料上传</span>
+      </div>
+      <div class="row input_fields">
+        <ul class="document_list" id="list">
+  				<li id="credit" class="document_item">
+            <div class="icon_left"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span></div>
+            <div class="content">个人照片</div>
+          </li>
+          <li id="export" class="document_item">
+            <div class="icon_left"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span></div>
+            <div class="content">身份证</div>
+          </li>
+          <li id="invoice" class="document_item">
+            <div class="icon_left"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span></div>
+            <div class="content">护照</div>
+          </li>
+  			</ul>
+      </div>
+    </div>
+    <div id="home_submit" class="sixth_step">
+      <div class="steps_header">
+        <button class="step_button">6</button>
+        <button id="cargo_submit" class="btn btn-success btn-lg">提交</button>
+      </div>
+    </div>
+  </div>
+</template>
