@@ -5,5 +5,8 @@ Meteor.methods({
   paid: function(cargo_id) {
     cargo.update({_id: cargo_id}, {$set: {'cargo.status': true}});
     return cargo.update({_id: cargo_id}, {$set: {'cargo.paid': true}})
-  }
+  }, 
+  refund: function(cargo_id) {
+    return cargo.update({_id: cargo_id}, {$set: {'cargo.status': false}});
+  } 
 })

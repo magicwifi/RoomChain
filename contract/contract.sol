@@ -16,15 +16,12 @@ contract Shipment {
 
   // Details of Cargo, including destination and payment
   struct Cargo {
-    bytes32 name;
     string description;
-    bytes32 hscode;
-    uint quantity;
-    uint weight;
-
-    bytes32 origin;
+    bytes32 city;
     bytes32 destination;
     uint startdate;
+    uint person_num;
+    uint duration;
     uint deadline;
     uint payment;
     uint penalty;
@@ -32,10 +29,6 @@ contract Shipment {
   }
 
   struct Shipping {
-    bytes32 vessel;
-    bytes32 voyage;
-    bytes32 booking;
-
     bool active;
   }
 
@@ -50,36 +43,26 @@ contract Shipment {
   event delayedShipment(string s, uint amount);
 
   function Shipment(bytes32 _name,
-                    bytes32 cargoname,
+                    bytes32 _city,
                     string _description,
-                    bytes32 _hscode,
-                    uint _quantity,
-                    uint _weight,
-                    bytes32 _origin,
                     bytes32 _destination,
-                    uint _deadline,
+		    uint _deadline,
+                    uint _duration,
+                    uint _person_num,
                     uint _penalty,
-                    string _hash,
-                    bytes32 _vessel,
-                    bytes32 _voyage,
-                    bytes32 _booking) {
+                    string _hash) {
     seller.account = msg.sender;
     seller.name = _name;
-    cargo.name = cargoname;
-    cargo.description = _description;
-    cargo.hscode = _hscode;
-    cargo.quantity = _quantity;
-    cargo.weight = _weight;
 
-    cargo.origin = _origin;
+    cargo.city = _city;
+    cargo.description = _description;
     cargo.destination = _destination;
+    cargo.duration = _duration;
     cargo.deadline = _deadline;
+    cargo.person_num = _person_num;
     cargo.penalty = _penalty;
     cargo.hash = _hash;
 
-    ship.vessel = _vessel;
-    ship.voyage = _voyage;
-    ship.booking = _booking;
     ship.active = false;
   }
 
