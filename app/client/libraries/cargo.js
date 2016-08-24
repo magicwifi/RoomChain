@@ -54,10 +54,18 @@ var shipmentContract = web3.eth.contract([{"constant":false,"inputs":[],"name":"
     Router.go(route);
   },
   'click #cargo_shipped': function() {
-    $('#shipment').html('<div class="cargo_header shipment_header"><h2>门锁权限已经开通</h2><img src="/cargo.jpg" /><div class="col-xs-12 dispute_buttons"><div class="col-xs-6"><button class="btn btn-lg btn-warning shipment_button">开启房门</button></div><div class="col-xs-6"><button class="btn btn-lg btn-danger shipment_button">关闭房门</button></div></div></div>');
+    $('#shipment').html('<div class="cargo_header shipment_header"><h2>门锁权限已经开通</h2><img src="/cargo.jpg" /><div class="col-xs-12 dispute_buttons"><div class="col-xs-6"><button  id="unlockdoor" class="btn btn-lg btn-warning shipment_button">开启房门</button></div><div id="lockdoor" class="col-xs-6"><button class="btn btn-lg btn-danger shipment_button">关闭房门</button></div></div></div>');
   },
   'click #repay': function() {
     var route = '/';
     Router.go(route);
-  }
+  },
+  'click #unlockdoor': function(){
+    Meteor.call('unlock');
+   },
+  'click #lockdoor': function(){
+    Meteor.call('lock');
+	}
+
+
 })
